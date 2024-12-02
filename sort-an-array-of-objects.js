@@ -12,8 +12,30 @@
         Handle cases where the key value is missing or null.
  */
 
-function sortObjects(obj, key) {
+function sortObjects(array, key) {
+    // Sort the array
+    return array.sort((a, b) => {
+        const valueA = a[key] ?? null; // Use null if key is missing
+        const valueB = b[key] ?? null;
 
+        // Handle missing or null values: push them to the end
+        if (valueA === null && valueB === null) return 0;
+        if (valueA === null) return 1;
+        if (valueB === null) return -1;
+
+        // Compare values for sorting
+        if (valueA < valueB) return -1;
+        if (valueA > valueB) return 1;
+        return 0; // Equal values
+    });
 }
+        
+// Example usage
+const data = [
+    { name: 'John', age: 25 },
+    { name: 'Jane', age: 20 },
+    { name: 'Alice' } // Missing 'age'
+];
 
-sortObjects([{name: 'John', age: 25}, {name: 'Jane', age: 20}], 'age');
+console.log(sortObjects(data, 'age'));
+// Output: [{ name: 'Jane', age: 20 }, { name: 'John', age: 25 }, { name: 'Alice' }]
