@@ -16,4 +16,12 @@ function sortObjects(obj, key) {
 
 }
 
-sortObjects([{name: 'John', age: 25}, {name: 'Jane', age: 20}], 'age');
+// Example usage
+const data = [
+    { name: 'John', age: 25 },
+    { name: 'Jane', age: 20 },
+    { name: 'Alice' } // Missing 'age'
+];
+
+console.log(sortObjects(data, 'age'));
+// Output: [{ name: 'Jane', age: 20 }, { name: 'John', age: 25 }, { name: 'Alice' }]

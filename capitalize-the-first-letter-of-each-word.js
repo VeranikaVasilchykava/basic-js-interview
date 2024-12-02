@@ -20,4 +20,7 @@ function capitalizeWords(string) {
 
 }
 
-capitalizeWords('hello world');
+// Example usage
+console.log(capitalizeWords('hello world'));           // Output: 'Hello World'
+console.log(capitalizeWords('   this is a test   '));  // Output: 'This Is A Test'
+console.log(capitalizeWords('123abc def! ghi.'));      // Output: '123abc Def! Ghi.'
